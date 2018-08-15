@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import { Route } from 'react-router-dom'
 import Main from './Main'
 import SearchPage from './SearchPage'
 // import * as BooksAPI from './BooksAPI'
@@ -9,8 +10,18 @@ class BooksApp extends Component {
   render() {
     return (
       <Fragment>
-        <Main />
-        <SearchPage />
+      <Route
+      	exact path='/'
+      	render={()=> (
+      		<Main />
+      	)}
+      />
+      <Route
+      	exact path='/SearchPage'
+      	render={()=> (
+	        <SearchPage />
+	    )}
+	  />
       </Fragment>
     )
   }
