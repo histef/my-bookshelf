@@ -1,14 +1,15 @@
 import React, { Component, Fragment } from 'react'
+import Book from './Book'
 
 function BookShelf() {
 	return (
 		<Fragment>
 			<h2 className="bookshelf-title">Currently Reading</h2>
-				<p>books with state of 'currently reading'</p>
+				<Book />books with state of 'currently reading'
 			<h2 className="bookshelf-title">Want to Read</h2>
-				<p>books with state of 'Want to Read'</p>
+				<Book />books with state of 'Want to Read'
 			<h2 className="bookshelf-title">Read</h2>
-				<p>books with state of 'Read'</p>
+				<Book />books with state of 'Read'
 		</Fragment>
 		)
 }

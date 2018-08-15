@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import SearchField from './SearchField'
+import Book from './Book'
 
 function SearchPage(){
 	return (
@@ -15,13 +16,17 @@ function SearchPage(){
 				/>
 			</div>
 			<div className='search-books-results'>
-				<p className='books-grid'>Book</p>
+				<Book/>
 			</div>
 		</Fragment>
 	)
 }
 
 export default SearchPage
+
+
+//TODO: filter thru books
+//TODO: add book components
 
         //PAGE   <div className="search-books">
         //SEARCHBAR&LINK WRAPPER    <div className="search-books-bar">
@@ -31,7 +36,7 @@ export default SearchPage
         //       </div>
         //     </div>
         //BOOK     <div className="search-books-results">
-        //BOOK       <ol className="books-grid"></ol>
+        //BOOK-OL       <ol className="books-grid"></ol>
         //     </div>
         //   </div>
         // )
