@@ -4,12 +4,37 @@ import { Link } from 'react-router-dom'
 
 function Main(props){
 
+	const currentlyReading = {
+		title: 'Currently Reading',
+		dataShelf: 'currentlyReading'
+	}
+
+	const wantToRead = {
+		title: 'Want to Read',
+		dataShelf: 'wantToRead'
+	}
+
+	const read = {
+	title: 'Read',
+	dataShelf: 'read'
+	}
+
+
 	return (
 		<Fragment>
 			<h1 className="list-books-title">My Reads</h1>
-			<BookShelf books={props.books} />
-
-
+			<BookShelf
+				books={props.books}
+				shelf={currentlyReading}
+			/>
+			<BookShelf
+				books={props.books}
+				shelf={wantToRead}
+			/>
+			<BookShelf
+				books={props.books}
+				shelf={read}
+			/>
 			<Link
 				to='/SearchPage'
 				className='open-search'>
