@@ -1,17 +1,30 @@
-import React, { Component, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import Book from './Book'
 
-function BookShelf() {
+function BookShelf(props) {
 	return (
 		<Fragment>
 			<h2 className="bookshelf-title">Currently Reading</h2>
-				<Book />books with state of 'currently reading'
+			<ul className='books-grid'>
+				{props.books.filter(book => book.shelf === 'currentlyReading')
+					.map(book => (
+						<li key='{book.id}'>
+							<Book book={book}/>
+						</li>
+					))
+				}
+			</ul>
 			<h2 className="bookshelf-title">Want to Read</h2>
-				<Book />books with state of 'Want to Read'
+
 			<h2 className="bookshelf-title">Read</h2>
-				<Book />books with state of 'Read'
+
 		</Fragment>
-		)
+	)
 }
 
 export default BookShelf
+
+            // <div className="list-books-content">
+            //   <div>
+            //     <div className="bookshelf">
+            //       <h2 className="bookshelf-title">Currently Reading</h2>
