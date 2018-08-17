@@ -4,7 +4,7 @@ import Book from './Book'
 function BookShelf(props) {
 
 	return (
-		<Fragment>
+		<div className='list-books-content'>
 			<h2 className="bookshelf-title">{props.shelf.title}</h2>
 			<ul className='books-grid'>
 				{props.books.filter(book => book.shelf === `${props.shelf.dataShelf}`)
@@ -15,7 +15,7 @@ function BookShelf(props) {
 					))
 				}
 			</ul>
-		</Fragment>
+		</div>
 	)
 }
 
