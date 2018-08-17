@@ -24,9 +24,9 @@ body, .app {
   flex: 1;
 }
 
-.bookshelf {
+/*.bookshelf {
   padding: 0 10px 20px;
-}
+}*/
 
 @media (min-width: 600px) {
   .bookshelf {
@@ -37,9 +37,9 @@ body, .app {
 .bookshelf-title {
   border-bottom: 1px solid #dedede;
 }
-.bookshelf-books {
+/*.bookshelf-books {
   text-align: center;
-}
+}*/
 
 .open-search {
   position: fixed;
@@ -105,13 +105,13 @@ body, .app {
   list-style-type: none;
   padding: 0;
   margin: 0;
-
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 .books-grid li {
-  padding: 10px 15px;
+  position: relative;
+  padding: 20px 15px;
   text-align: left;
 }
 
@@ -129,17 +129,17 @@ body, .app {
   color: #999;
 }
 
-.book-top {
+/*.book-top { //source of my pain
   position: relative;
   height: 200px;
   display: flex;
   align-items: flex-end;
-}
+}*/
 
 .book-shelf-changer {
   position: absolute;
   right: 0;
-  bottom: -10px;
+  top: 175px;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -163,8 +163,9 @@ body, .app {
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   background: #eee;
 }
-.book-cover-title {
+/*.book-cover-title {
   padding: 20px 10px 0;
   text-align: center;
   font-size: 0.8em;
 }
+*/
