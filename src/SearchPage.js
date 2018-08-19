@@ -1,25 +1,41 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component,Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import SearchField from './SearchField'
-import Book from './Book'
+// import Book from './Book'
 
-function SearchPage(){
-	return (
-		<Fragment>
-			<div className='search-books-bar'			>
-				<Link
-					to='/'
-					className='close-search'>
-				</Link>
-				<SearchField
-					className='search-books-input-wrapper'
-				/>
-			</div>
-			<div className='search-books-results'>
-				<Book/>
-			</div>
-		</Fragment>
-	)
+class SearchPage extends Component {
+
+	state = {
+		query: ''
+	}
+
+	updateQuery = (query) => {
+		this.setState({ query })
+	}
+
+	render(){
+
+		return (
+
+			<Fragment>
+				<div className='search-books-bar'>
+					<Link
+						to='/'
+						className='close-search'>
+					</Link>
+					<SearchField
+						className='search-books-input-wrapper'
+						value={this.state.query}
+						updateQuery={this.updateQuery}
+					/>
+				</div>
+				<div className='search-books-results'>
+					<ul>
+					</ul>
+				</div>
+			</Fragment>
+		)
+	}
 }
 
 export default SearchPage

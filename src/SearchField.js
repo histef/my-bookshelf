@@ -1,18 +1,7 @@
-import React, { Component, Fragment } from 'react'
+import React, { Fragment } from 'react'
 
-class SearchField extends Component {
 
-	state = {
-		query: ''
-	}
-
-	updateState = (query) => {
-		this.setState({
-			query: query.trim()
-		})
-	}
-
-	render(){
+function SearchField(props){
 
 	return (
 		<Fragment>
@@ -20,13 +9,12 @@ class SearchField extends Component {
 	        	<input
 	        		type="text"
 	        		placeholder="Search by title or author"
-	        		value={this.state.query}
-	        		onChange={(event)=>this.updateState(event.target.value)}
+	        		value={props.value}
+	        		onChange={(event)=> props.updateQuery(event.target.value)}
 	        	/>
 			</form>
 		</Fragment>
-		)
-	}
+	)
 }
 
 export default SearchField
