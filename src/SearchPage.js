@@ -22,20 +22,19 @@ class SearchPage extends Component {
 	showSearched = query => {
 		if(query){
 			BooksAPI.search(query)
-				.then((books)=>{
-					this.setState({
-					searchBooks: books
-					})
-					console.log(books)
-				})
-		} else {
-			this.setState({
-				searchBooks: []
+			.then((books)=>{
+				if(books.error){
+					this.setState({ searchBooks: [] })
+				} else {
+					this.setState({searchBooks: books})
+				}
 			})
+		} else {
+			this.setState({	searchBooks: [] })
 		}
 	}
 
-	render(){
+	render() {
 		let matchBooks
 
 		if (this.state.query){
