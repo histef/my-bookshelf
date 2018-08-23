@@ -10,28 +10,37 @@ class SearchPage extends Component {
 
 	state = {
 		query: '',
-		searchBooks: []
+		searchBooks: [],
+		booksInSearchBooks: true //set initially to true, until first query
 	}
 
 	updateQuery = (query) => {
 		this.setState({ query })
 		this.showSearched(query);
+		this.match();
 	}
 
-
+	//method to push books that match query to searchBooks array
 	showSearched = query => {
 		if(query){
 			BooksAPI.search(query)
 			.then((books)=>{
 				if(books.error){
-					this.setState({ searchBooks: [] })
+					this.setState({ searchBooks: [],
+					booksInSearchBooks:false })
 				} else {
+					booksInSearchBooks:true
 					this.setState({searchBooks: books})
+
 				}
 			})
 		} else {
 			this.setState({	searchBooks: [] })
 		}
+	}
+
+	match = () => {
+		this.setState ({booksInSearchBooks: true})
 	}
 
 	render() {
@@ -59,16 +68,17 @@ class SearchPage extends Component {
 					/>
 				</div>
 				<div className='search-books-results'>
-					<ul className='books-grid'>
-						{matchBooks.map(filteredBook => (
-						<li key={filteredBook.id}>
-							<Book book={filteredBook}/>
-						</li>
-					))
-				}
-
-
-					</ul>
+					{this.state.booksInSearchBooks === true ?
+	 					<ul className='books-grid'>
+							{matchBooks.map(filteredBook => (
+							<li key={filteredBook.id}>
+								<Book book={filteredBook}/>
+							</li>
+							))}
+						</ul>
+					 :
+						<p className="no-match">No matches found</p>
+					}
 				</div>
 			</Fragment>
 		)
@@ -76,6 +86,10 @@ class SearchPage extends Component {
 }
 
 export default SearchPage
+
+
+
+
 
 
 //TODO: filter thru books
