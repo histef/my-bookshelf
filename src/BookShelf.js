@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import Book from './Book'
 
 function BookShelf(props) {
@@ -7,10 +7,13 @@ function BookShelf(props) {
 		<div className='list-books-content'>
 			<h2 className="bookshelf-title">{props.shelf.title}</h2>
 			<ul className='books-grid'>
-				{props.books.filter(book => book.shelf === `${props.shelf.dataShelf}`)
-					.map(filteredBook => (
+				{props.books
+				.filter(book => book.shelf === `${props.shelf.dataShelf}`) //if the book's data.shelf value is one of the values in my shelf object, then display it
+				.map(filteredBook => (
 						<li key='{filteredBook.id}'>
-							<Book book={filteredBook}/>
+							<Book book={filteredBook}
+								  changeShelf={props.changeShelf}
+							/>
 						</li>
 					))
 				}

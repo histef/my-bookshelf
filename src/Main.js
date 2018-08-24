@@ -15,10 +15,9 @@ function Main(props){
 	}
 
 	const read = {
-	title: 'Read',
-	dataShelf: 'read'
+		title: 'Read',
+		dataShelf: 'read'
 	}
-
 
 	return (
 		<Fragment>
@@ -46,7 +45,6 @@ function Main(props){
 
 export default Main
 
-    // <div className="list-books">
     //         <div className="list-books-title">
     //           <h1>MyReads</h1>
     //         </div>

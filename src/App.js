@@ -5,6 +5,12 @@ import SearchPage from './SearchPage'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
 
+const context = React.createContext();
+
+class MyProvider extends Component {
+
+}
+
 
 class BooksApp extends Component {
   state = {
@@ -12,10 +18,21 @@ class BooksApp extends Component {
       }
 
   componentDidMount(){
+    this.fetchAllBooks();
+  }
+
+  fetchAllBooks = () => {
     BooksAPI.getAll()
     .then( data => {
       this.setState({ data });
+      console.log(data)
     })
+  }
+
+  changeShelf = (book, shelf) => {
+    BooksAPI.update(book, shelf);
+    this.fetchAllBooks();
+
   }
 
   render() {
@@ -24,13 +41,19 @@ class BooksApp extends Component {
         <Route
         	exact path='/'
         	render={()=> (
-        		<Main books={this.state.data}/>
+        		<Main
+              books={this.state.data}
+              changeShelf={this.changeShelf}
+            />
         	)}
         />
         <Route
         	exact path='/SearchPage'
         	render={()=> (
-  	        <SearchPage books={this.state.data}/>
+  	        <SearchPage
+              books={this.state.data}
+              changeShelf={this.changeShelf}
+            />
           )}
         />
       </Fragment>
