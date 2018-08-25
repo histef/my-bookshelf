@@ -18,6 +18,7 @@ class SearchPage extends Component {
 		this.setState({ query })
 		this.showSearched(query);
 		this.match();
+		// this.defaultShelf(query);
 	}
 
 	//method to push books that match query to searchBooks array
@@ -26,12 +27,14 @@ class SearchPage extends Component {
 			BooksAPI.search(query)
 			.then((books)=>{
 				if(books.error){
-					this.setState({ searchBooks: [],
-					booksInSearchBooks:false })
+					this.setState({
+						searchBooks: [],
+						booksInSearchBooks:false })
 				} else {
-					booksInSearchBooks:true
-					this.setState({searchBooks: books})
 
+					this.setState({
+						searchBooks: books,
+						booksInSearchBooks:true })
 				}
 			})
 		} else {
@@ -43,6 +46,14 @@ class SearchPage extends Component {
 		this.setState ({booksInSearchBooks: true})
 	}
 
+	// defaultShelf = (query) => { //you gotta update shelf using booksAPI.update
+	// 	this.setState({
+	// 		searchBooks: this.state.searchBooks.map( book => {
+	// 		book.shelf ? book.shelf : (Object.assign({shelf: 'none'}. book))
+	// 		})
+	// 	})
+	//}
+
 	render() {
 		let matchBooks
 
@@ -52,6 +63,8 @@ class SearchPage extends Component {
 		} else {
 			matchBooks = this.state.searchBooks
 		}
+
+		console.log(this.state.searchBooks);
 
 		return (
 
@@ -70,11 +83,27 @@ class SearchPage extends Component {
 				<div className='search-books-results'>
 					{this.state.booksInSearchBooks === true ?
 	 					<ul className='books-grid'>
-							{matchBooks.map(filteredBook => (
+							{
+								matchBooks.map(filteredBook => {
+									//gives every book that comes up a select value
+									let shelf='none';
+
+									this.props.books.map(book =>(
+										book.id === filteredBook.id?
+										shelf=book.shelf : ''
+									))
+
+								return(
 							<li key={filteredBook.id}>
-								<Book book={filteredBook}/>
+								<Book
+									book={filteredBook}
+									changeShelf={this.props.changeShelf}
+									getShelf={shelf}
+								/>
 							</li>
-							))}
+								)
+								})
+							}
 						</ul>
 					 :
 						<p className="no-match">No matches found</p>
@@ -89,21 +118,4 @@ export default SearchPage
 
 
 
-
-
-
-//TODO: filter thru books
-//TODO: add book components
-
-        //PAGE   <div className="search-books">
-        //SEARCHBAR&LINK WRAPPER    <div className="search-books-bar">
-        //LINK       <a className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</a>
-        //FORM       <div className="search-books-input-wrapper">
-        //INPUT         <input type="text" placeholder="Search by title or author"/>
-        //       </div>
-        //     </div>
-        //BOOK     <div className="search-books-results">
-        //BOOK-OL       <ol className="books-grid"></ol>
-        //     </div>
-        //   </div>
-        // )
+//TODO: refactor-take ul and put in book.js
