@@ -15,7 +15,7 @@ class SearchPage extends Component {
 	}
 
 	updateQuery = (query) => {
-		this.setState({ query })
+		this.setState({ query: query.trim() })
 		this.showSearched(query);
 		this.match();
 		// this.defaultShelf(query);
