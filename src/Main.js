@@ -25,14 +25,17 @@ function Main(props){
 			<BookShelf
 				books={props.books}
 				shelf={currentlyReading}
+				changeShelf={props.changeShelf}
 			/>
 			<BookShelf
 				books={props.books}
 				shelf={wantToRead}
+				changeShelf={props.changeShelf}
 			/>
 			<BookShelf
 				books={props.books}
 				shelf={read}
+				changeShelf={props.changeShelf}
 			/>
 			<Link
 				to='/SearchPage'
