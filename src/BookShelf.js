@@ -10,7 +10,7 @@ function BookShelf(props) {
 				{props.books
 				.filter(book => book.shelf === `${props.shelf.dataShelf}`) //if the book's APIdata.shelf value is one of the values in my shelf object, then display it
 				.map(filteredBook => (
-						<li key='{filteredBook.id}'>
+						<li key={filteredBook.id}>
 							<Book book={filteredBook}
 								  changeShelf={props.changeShelf}
 								  getShelf={filteredBook.shelf}
