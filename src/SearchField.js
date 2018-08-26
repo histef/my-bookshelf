@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-
+import PropTypes from 'prop-types'
 
 function SearchField(props){
 
@@ -17,9 +17,10 @@ function SearchField(props){
 	)
 }
 
+SearchField.propTypes = {
+  value: PropTypes.string.isRequired,
+  updateQuery: PropTypes.func.isRequired,
+}
+
 export default SearchField
 
-
-    //           <div className="search-books-input-wrapper">
-    //             <input type="text" placeholder="Search by title or author"/>
-    //           </div>

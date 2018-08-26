@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import BookShelf from './BookShelf'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 function Main(props){
 
@@ -43,11 +44,11 @@ function Main(props){
 			</Link>
 		</Fragment>
 	)
+}
 
+Main.propTypes = {
+  books: PropTypes.array.isRequired,
+  changeShelf: PropTypes.func.isRequired
 }
 
 export default Main
-
-    //         <div className="list-books-title">
-    //           <h1>MyReads</h1>
-    //         </div>
