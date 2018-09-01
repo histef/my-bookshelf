@@ -1,5 +1,6 @@
 import React, { Component,Fragment } from 'react'
 import { Link } from 'react-router-dom'
+
 import SearchField from './SearchField'
 import * as BooksAPI from './BooksAPI'
 import Book from './Book'
@@ -11,14 +12,14 @@ class SearchPage extends Component {
 	state = {
 		query: '',
 		searchBooks: [],
-		booksInSearchBooks: true //set initially to true, until first query
+		//will handle if no book matches search
+		booksInSearchBooks: true //set initially to true, until first query - (initialize searchfield)
 	}
 
 	updateQuery = (query) => {
 		this.setState({ query: query.trim() })
 		this.showSearched(query);
 		this.match();
-		// this.defaultShelf(query);
 	}
 
 	//method to push books that match query to searchBooks array
@@ -45,14 +46,6 @@ class SearchPage extends Component {
 	match = () => {
 		this.setState ({booksInSearchBooks: true})
 	}
-
-	// defaultShelf = (query) => { //you gotta update shelf using booksAPI.update
-	// 	this.setState({
-	// 		searchBooks: this.state.searchBooks.map( book => {
-	// 		book.shelf ? book.shelf : (Object.assign({shelf: 'none'}. book))
-	// 		})
-	// 	})
-	//}
 
 	render() {
 		let matchBooks
@@ -85,12 +78,11 @@ class SearchPage extends Component {
 	 					<ul className='books-grid'>
 							{
 								matchBooks.map(filteredBook => {
-									//gives every book that comes up a select value
-									let shelf='none';
+									let shelf;
 
 									this.props.books.map(book =>(
-										book.id === filteredBook.id?
-										shelf=book.shelf : ''
+										book.id === filteredBook.id ?
+										shelf=book.shelf : shelf='none'
 									))
 
 								return(
@@ -114,8 +106,6 @@ class SearchPage extends Component {
 	}
 }
 
+
 export default SearchPage
 
-
-
-//TODO: refactor-take ul and put in book.js

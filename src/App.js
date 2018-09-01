@@ -1,16 +1,10 @@
 import React, { Component, Fragment } from 'react'
 import { Route } from 'react-router-dom'
+
 import Main from './Main'
 import SearchPage from './SearchPage'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
-
-const context = React.createContext();
-
-class MyProvider extends Component {
-
-}
-
 
 class BooksApp extends Component {
   state = {
@@ -22,6 +16,7 @@ class BooksApp extends Component {
   }
 
   fetchAllBooks = () => {
+    //This collection represents the books currently in the bookshelves in your app.
     BooksAPI.getAll()
     .then( data => {
       this.setState({ data });
@@ -30,13 +25,15 @@ class BooksApp extends Component {
   }
 
   changeShelf = (book, shelf) => {
+    //test old shelf and new shelf
+    console.log(book.shelf, shelf)
     BooksAPI.update(book, shelf);
     this.fetchAllBooks();
-
   }
 
   render() {
     return (
+
       <Fragment>
         <Route
         	exact path='/'
@@ -47,6 +44,7 @@ class BooksApp extends Component {
             />
         	)}
         />
+
         <Route
         	exact path='/SearchPage'
         	render={()=> (
@@ -57,9 +55,11 @@ class BooksApp extends Component {
           )}
         />
       </Fragment>
+
     )
   }
-
 }
+
+
 
 export default BooksApp
