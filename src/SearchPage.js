@@ -17,8 +17,8 @@ class SearchPage extends Component {
 	}
 
 	updateQuery = (query) => {
-		this.setState({ query: query.trim() })
-		this.showSearched(query);
+		this.setState({ query })
+		this.showSearched(query.trim());
 		this.match();
 	}
 
@@ -78,11 +78,10 @@ class SearchPage extends Component {
 	 					<ul className='books-grid'>
 							{
 								matchBooks.map(filteredBook => {
-									let shelf;
+									let shelf = 'none';
 
 									this.props.books.map(book =>(
-										book.id === filteredBook.id ?
-										shelf=book.shelf : shelf='none'
+										book.id === filteredBook.id && (shelf = book.shelf)
 									))
 
 								return(
