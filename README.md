@@ -4,8 +4,8 @@
 ___
 * [Overview](#overview)
 * [Installation](#installation)
-* [Files: What You're Getting](#what you're getting)
-* [Backend](#backend server)
+* [Files: What You're Getting](#what-you're-getting)
+* [Backend](#backend-server)
 * [Miscellaneous](#important)
 
 ## Overview
