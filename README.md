@@ -4,7 +4,7 @@ ___
 ## Table of Contents
 * [Overview](#overview)
 * [Installation](#installation)
-* [What You're Getting](#what-you're-getting)
+* [File Tree](#file-tree)
 * [Backend](#backend-server)
 * [Miscellaneous](#important)
 
@@ -18,7 +18,7 @@ To get started:
 * install all project dependencies with `npm install`
 * start the development server with `npm start`
 
-## What You're Getting
+## File Tree
 ```bash
 ├── CONTRIBUTING.md
 ├── README.md - This file.
