@@ -4,7 +4,7 @@ ___
 ## Table of Contents
 * [Overview](#overview)
 * [Installation](#installation)
-* [Files: What You're Getting](#what-you're-getting)
+* [What You're Getting](#what-you're-getting)
 * [Backend](#backend-server)
 * [Miscellaneous](#important)
 
