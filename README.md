@@ -1,7 +1,7 @@
 # MyReads Project
-
-##Table of Contents
 ___
+
+## Table of Contents
 * [Overview](#overview)
 * [Installation](#installation)
 * [Files: What You're Getting](#what-you're-getting)
