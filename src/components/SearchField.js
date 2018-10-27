@@ -8,7 +8,7 @@ function SearchField({ value, updateQuery }){
 			<form>
 	        	<input
 	        		type="text"
-	        		placeholder="Search by title or author"
+	        		placeholder="Enter search here"
 	        		value={value}
 	        		onChange={ event => updateQuery(event.target.value)}
 	        	/>
