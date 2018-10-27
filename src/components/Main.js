@@ -21,7 +21,7 @@ const Main = ({ books, changeShelf }) => {
 
 	return (
 		<Fragment>
-			<h1 className="list-books-title">My Reads</h1>
+			<h1 className="list-books-title">My Bookcase</h1>
       <ul className="bookshelf-list">
         {shelves.map( (mainShelf,index) =>
           <li key={index}>
