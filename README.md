@@ -1,4 +1,4 @@
-# MyReads Project
+# My Bookshelf App
 ___
 
 ## Table of Contents
@@ -9,7 +9,7 @@ ___
 * [Miscellaneous](#important)
 
 ## Overview
-This is a book organizing app. The main page shows three e-bookshelves('Read', Currently Reading', 'Want to Read') where you can organize your books according to the user selected status. You can also search for a book in the Search Page and then add it to one of the bookshelves. I was provided the starter code and stylesheet and was tasked to make it functional using the React Library. This is the final assessment project for Udacity's React Fundamentals course. This project is subject to a code review by a Udacity reviewer.
+This is a book organizing app. The main page shows three e-bookshelves('Read', Currently Reading', 'Want to Read') where you can organize your books according to the user selected status. You can also search for a book in the Search Page and then add it to one of the bookshelves. I was provided the starter code and stylesheet and was tasked to make it functional using the React Library. This project passed a code review by a Udacity reviewer.
 
 ## Installation
 
