@@ -1,5 +1,5 @@
 {
-  "homepage": "https://histef.github.io/my-reads-app",
+  "homepage": "",
   "dependencies": {
     "escape-string-regexp": "^1.0.5",
     "gh-pages": "^2.0.1",
